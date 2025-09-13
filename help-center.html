@@ -213,7 +213,7 @@
       }
 
       // Mailto fallback (no backend)
-      const subject = encodeURIComponent(`[BridgR] ${data.subject} — ${data.libraryId || 'no-library'}`);
+      const subject = encodeURIComponent(`${data.subject} — ${data.libraryId || 'no-library'}`);
       const body = encodeURIComponent(`Name: ${data.name}\nLibraryId: ${data.libraryId}\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage:\n${data.message}`);
       const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
       // open mail client
