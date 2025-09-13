@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BridgR — Help Center</title>
+  <meta name="description" content="Help center for BridgR library owners — contact support, view FAQs and privacy policy." />
+  <style>
+    :root{--bg:#fafbfd;--card:#ffffff;--muted:#6b7280;--accent:#0b84ff;--success:#16a34a}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#0f172a;background:linear-gradient(180deg,#f6f8fb, #f0f4f8)}
+    .container{max-width:980px;margin:36px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    header h1{margin:0;font-size:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(15,23,42,0.06);}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr} .sidebar{order:2}}
+
+    .form-row{display:flex;gap:12px}
+    .form-row .col{flex:1}
+    label{display:block;font-weight:600;font-size:13px;margin-bottom:6px}
+    input[type="text"],input[type="email"],input[type="tel"],select,textarea{width:100%;padding:10px 12px;border:1px solid #e6eef8;border-radius:8px;background:#fff;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .muted{color:var(--muted);font-size:13px}
+
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn.secondary{background:#eef3ff;color:var(--accent);border:1px solid rgba(11,132,255,0.12)}
+    .small{font-size:13px}
+
+    .sidebar .section{margin-bottom:12px}
+    .faq dt{font-weight:700;margin-top:10px}
+    .faq dd{margin:6px 0 12px;color:var(--muted)}
+
+    .meta{display:flex;gap:12px;flex-wrap:wrap}
+    .chip{background:#f1f5f9;padding:6px 8px;border-radius:999px;font-size:13px;color:#0f172a}
+
+    .notice{border-left:4px solid #ffd166;background:#fff7ed;padding:10px 12px;border-radius:8px;color:#92400e}
+    .success{background:rgba(22,163,74,0.08);border-left:4px solid var(--success);padding:10px 12px;border-radius:8px;color:var(--success)}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0b84ff,#7dd3fc);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">BR</div>
+      <div>
+        <h1>BridgR Help Center</h1>
+        <div class="muted">Need help? Contact our support team or browse FAQs below.</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Main -->
+      <div>
+        <div class="card">
+          <h2 style="margin-top:0">Contact Support</h2>
+          <p class="muted">Fill the form below — we'll reply to the email or phone you provide. If you prefer, use the quick links on the right.</p>
+
+          <form id="helpForm">
+            <div class="form-row">
+              <div class="col">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Anita Sharma" required />
+              </div>
+              <div class="col">
+                <label for="libraryId">Library ID</label>
+                <input id="libraryId" name="libraryId" type="text" placeholder="LIB-12345" />
+              </div>
+            </div>
+
+            <div class="form-row" style="margin-top:12px">
+              <div class="col">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="col">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91 99999 99999" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="What's the issue?" required />
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Describe your issue or request"></textarea>
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+              <button type="submit" class="btn">Send message</button>
+              <button type="button" id="openMail" class="btn secondary">Open in Email</button>
+              <div id="formStatus" style="margin-left:8px;min-width:160px"></div>
+            </div>
+
+            <div style="margin-top:12px" class="muted small">We normally reply within 24–48 hours on business days.</div>
+          </form>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Frequently asked</h3>
+          <dl class="faq">
+            <dt>How do I upgrade my plan?</dt>
+            <dd>Open the subscription screen in the app and choose the plan you want. If you need help, contact support using the form above.</dd>
+
+            <dt>How do trials work?</dt>
+            <dd>New libraries get a 7-day app trial. After that, features are restricted until you purchase a subscription. Play billing offers may include additional trial periods managed by Google.</dd>
+
+            <dt>How do I cancel?</dt>
+            <dd>Subscriptions are managed in Google Play. Cancel from Play Store; you will keep access until your expiry date.</dd>
+
+            <dt>Where is the privacy policy?</dt>
+            <dd>See our privacy policy: <a id="policyLink" href="https://raw.githubusercontent.com/VeenitSharma/Privacy-Policy/main/privacy-policy.html" target="_blank" rel="noopener">privacy-policy.html</a></dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-top:0">Quick help</h3>
+          <div class="meta" style="margin:8px 0 12px">
+            <div class="chip">Support: support@bridgr.example</div>
+            <div class="chip">Phone: +91 98765 43210</div>
+          </div>
+
+          <div class="section">
+            <div class="muted">Support hours</div>
+            <div style="margin-top:6px">Mon–Fri · 9:00 — 18:00</div>
+          </div>
+
+          <div class="section">
+            <div class="muted">If urgent</div>
+            <div style="margin-top:8px"><button id="callBtn" class="btn secondary">Call support</button></div>
+          </div>
+
+          <div class="section">
+            <div class="muted">Other resources</div>
+            <ul style="padding-left:18px;margin:8px 0;color:var(--muted)">
+              <li><a href="#" id="faqLink">Full Help docs</a></li>
+              <li><a href="#" id="reportBug">Report a bug</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h4 style="margin-top:0">Privacy</h4>
+          <div class="muted">We take privacy seriously. Read our policy.</div>
+          <div style="margin-top:10px"><a class="btn" id="openPolicy">Open privacy policy</a></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © ${java.time.Year.now()} BridgR · <span class="muted">Made with care</span>
+    </footer>
+  </div>
+
+  <script>
+    // Configuration: set supportEmail or formEndpoint if you have a backend
+    const supportEmail = 'support@bridgr.example';
+    const supportPhone = '+919876543210';
+    const formEndpoint = ''; // e.g. 'https://api.yourdomain.com/support' - leave empty to use mailto fallback
+
+    const form = document.getElementById('helpForm');
+    const status = document.getElementById('formStatus');
+    const openMail = document.getElementById('openMail');
+    const callBtn = document.getElementById('callBtn');
+    const openPolicy = document.getElementById('openPolicy');
+    const faqLink = document.getElementById('faqLink');
+    const reportBug = document.getElementById('reportBug');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.innerHTML = '';
+
+      const data = {
+        name: form.name.value.trim(),
+        libraryId: form.libraryId.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        subject: form.subject.value.trim(),
+        message: form.message.value.trim(),
+        timestamp: new Date().toISOString()
+      };
+
+      if (formEndpoint) {
+        try {
+          status.innerHTML = '<div class="muted">Sending…</div>';
+          const resp = await fetch(formEndpoint, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+          });
+          if (resp.ok) {
+            status.innerHTML = '<div class="success">Message sent — we will reply within 24–48 hours.</div>';
+            form.reset();
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (err) {
+          status.innerHTML = '<div class="notice">Failed to send. Please open your email client or contact support directly.</div>';
+        }
+        return;
+      }
+
+      // Mailto fallback (no backend)
+      const subject = encodeURIComponent(`[BridgR] ${data.subject} — ${data.libraryId || 'no-library'}`);
+      const body = encodeURIComponent(`Name: ${data.name}\nLibraryId: ${data.libraryId}\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage:\n${data.message}`);
+      const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
+      // open mail client
+      window.location.href = mailto;
+    });
+
+    openMail.addEventListener('click', () => {
+      const subject = encodeURIComponent('[BridgR] Support request');
+      const mailto = `mailto:${supportEmail}?subject=${subject}`;
+      window.location.href = mailto;
+    });
+
+    callBtn.addEventListener('click', () => {
+      // mobile devices will open the dialer
+      window.location.href = `tel:${supportPhone}`;
+    });
+
+    openPolicy.addEventListener('click', () => {
+      window.open(document.getElementById('policyLink').href, '_blank', 'noopener');
+    });
+
+    faqLink.addEventListener('click', (e) => { e.preventDefault(); alert('Open full help docs (link placeholder).')});
+    reportBug.addEventListener('click', (e) => { e.preventDefault(); window.open('mailto:' + supportEmail + '?subject=Bug%20report', '_blank') });
+
+    // Small helper: copy raw privacy policy link to clipboard
+    document.getElementById('policyLink').addEventListener('click', (e) => {
+      // leave default behaviour (open link) but also copy raw link
+      const url = e.target.href;
+      try { navigator.clipboard?.writeText(url); } catch (err) { /* noop */ }
+    });
+  </script>
+</body>
+</html>
